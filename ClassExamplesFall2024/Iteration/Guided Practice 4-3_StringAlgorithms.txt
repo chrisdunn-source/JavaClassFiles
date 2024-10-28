@@ -1,0 +1,79 @@
+
+
+
+
+Guided Practice 1
+
+import java.util.Scanner;// import scanner
+public class PairProgramming1 {//main class
+    public static void main(String[] args){//Main method
+
+        Scanner kbReader = new Scanner(System.in); //scanner object
+
+        System.out.println("Input String:");//user input
+
+        String line = kbReader.nextLine();//store in value
+
+        line = line.toLowerCase();//change string to lowerCase
+
+        int count = 0; //count
+        for(int i=0; i<line.length()-1; i++){ //check each letter in string variable
+            if(line.substring(i, i+2).equals("sh")){ //check to see if first two letters equals "sh"
+                count++;//increase count
+            }
+        }
+        System.out.println("Contains\"sh\" " + count + " times.");//output reults 
+    }
+}
+
+
+Guided Practice 2
+
+import java.util.Scanner;
+
+public class PairProgramming1{
+  public static void main(String[] args){
+
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Enter String:");
+    String str = scan.nextLine();
+    str = str.toLowerCase();
+    String result = "";
+    for(int i=0; i<str.length(); i++){
+      String sub = str.substring(i,i+1);
+      if(!(sub.equals("a")||sub.equals("e")||sub.equals("i")||sub.equals("o")||sub.equals("u")))
+        result += sub;
+    }
+    System.out.println(result);
+  }
+}
+
+
+Guided Practice 3
+import java.util.Scanner;
+
+public class PairProgramming1{
+  public static void main(String[] args){
+
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Enter Strings:");
+    String str1 = scan.nextLine();
+    String str2 = scan.nextLine();
+    String result = "";
+    if(str1.length() == str2.length()){
+      for(int i=0; i<str1.length(); i++){
+        result += str1.substring(i, i+1);
+        result += str2.substring(i, i+1);
+      }
+      System.out.println(result);
+    }
+    else{
+      System.out.println("error");
+    }
+  }
+}
+
+
+
+
+
