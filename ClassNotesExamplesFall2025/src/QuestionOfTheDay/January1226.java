@@ -1,3 +1,5 @@
+package QuestionOfTheDay;
+
 public class January1226 {
     public static void main(String[] args) {
         int[] scores = {12, 81, 35, 73, 64, 55};
