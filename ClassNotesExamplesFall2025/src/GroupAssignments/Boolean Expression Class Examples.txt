@@ -1,0 +1,96 @@
+1.
+A user can access the restricted online archives if EITHER their library card is active (cardActive=true) OR they are a staff member (isStaff=true).
+
+((cardActive == true )∣∣ (isStaff == true))
+
+2.
+A customer can buy a ticket if their age is ≥17 AND they have a hasValidID.
+
+(age≥17) && (hasValidID == true)
+
+3.
+Free shipping if EITHER total ≥ $50 OR they are a premiumMember,
+ AND they are NOT shipping internationally (isInternationalShipping = false).
+
+((total ≥ 50) ∣∣ premiumMember == true) && (!isInternationalShipping == true)
+
+4.
+Invitation if attendedCount ≥ 3 AND their title is NOT "Student".
+
+(attendedCount ≥ 3) && !(title == "Student")
+
+(attendedCount ≥ 3) && (title != "Student")
+
+5.
+Verified if emailVerified is true AND EITHER they have has2FA OR profileCompletePercentage is ≥ 80.
+
+(emailVerified == true) && ((has2FA == true) ∣∣ (profileCompletePercentage ≥ 80))
+
+
+6.
+Bonus if level is in the range [20,50] AND their score is ≥ 1000.
+
+((level ≥ 20) && (level ≤ 50)) && (score≥1000)
+
+7.
+Eligible if NOT on the isBlacklisted list AND EITHER role is "Manager" OR department is "Sales".
+
+(!isBlacklisted == true) && ((role == "Manager") ∣∣ (department == "Sales"))
+
+8.
+High-priority if EITHER it is a securityIssue OR BOTH severityRating ≥ 8 AND usersAffected ≥ 500.
+
+(securityIssue == true) ∣∣ ((severityRating ≥ 8) && (usersAffected ≥ 500))
+
+9.
+Approved if daysRequested ≤ 10 AND NOT (month is "December" OR isOnPerformancePlan is true).
+(daysRequested ≤ 10) && !((month =="December") ∣∣ (isOnPerformancePlan == true))
+
+(daysRequested≤10) && ((month != "December") ∣∣ !(isOnPerformancePlan == true))
+
+
+
+
+10.
+Platinum status if lifetimePurchases ≥ 100 
+AND EITHER loginStreak ≥ 30 OR (rating ≥ 4.5 AND reviewsCount ≥ 20)
+
+
+(lifetimePurchases ≥ 100) 
+        && 
+((loginStreak ≥ 30) ∣∣ ((rating ≥ 4.5) && (reviewsCount ≥ 20)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
