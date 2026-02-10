@@ -1,0 +1,45 @@
+public class FlightSeatingChart{
+
+private Passenger[][] chart;
+
+
+
+public void upgrade(int upgradeRow, int upgradeCol)
+{
+int maxRating = 0;
+int swapRow = -1;
+int swapCol = -1;
+	for(int r = upgradeRow; r < chart.length;r++ )
+	{
+		for(int c = 0; c < chart[0].length;c++)
+		
+		{
+		if(chart[r][c] != null)
+	       {
+		int currentRatingchart[r][c].getRating();
+		if(currentRating > maxRating)
+		{
+		maxRating = currentRating;
+                swapRow = r;
+		swapCol = c;
+		}
+	       }
+		}
+
+	}	
+    chart[updateRow][updateCol]=chart[swapRow][swapCol];
+    chart[swapRow][swapCol] = null;
+
+
+
+
+}
+
+
+
+
+
+
+
+
+}
