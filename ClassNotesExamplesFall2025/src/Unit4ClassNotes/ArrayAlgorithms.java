@@ -1,88 +1,275 @@
-package Unit4ClassNotes;
-
 public class ArrayAlgorithms {
     /*
-    Some of the more used Algorithms for Arrays
+    Array Algorithms
+    When combined with loops and conditionals, certain helpful tasks are possible with arrays.
      */
+
     public static void main(String[] args) {
-        //Mathematical Analysis
-        //find the minimum
-        int[] scores = {80, 92, 91, 68, 88};
+        //Searching for a Particular Element
+        String[] cars = {"Corolla", "Camry", "Prius", "RAV4", "Highlander"};
+        String Camry = "A Camry is not available."; //default String value
 
-        int minIndex = scores[0];// assign min value to first value in list
-
-        for (int i = 1; i < scores.length; i++) {//loop through list starting at 2 spot since first spot is min value
-            if (scores[i] < minIndex) {//check to see if the element you are looking at is less than current min
-                minIndex = i;// if true update minIndex
+        for (String s : cars) { //enhanced for loop
+            if (s.equals("Camry")) { //if "Camry" is in array
+                Camry = "A Camry is available."; //variable changes if "Camry" exists
             }
         }
 
-        System.out.print("Minimum number: ");
-        System.out.println(scores[minIndex]);
-        System.out.print("Found at index: ");
-        System.out.println(minIndex);
+        System.out.println(Camry); //print whether Camry exists or not
 
-        //Tracking Values in a List
-        String[] grades = {"A", "C", "B", "A", "B"};
-        //How many A's are in the list
-        int numAs = 0;// variable to store the number of As
-        for (String a : grades)//foreach to go thru the entire list
+
+
+
+
+
+
+
+
+
+
+
+        //Try this out
+        /*
+        Try to modify the code above so that the algorithm will look for
+        Prius in the array and will print A Prius is available. if Prius
+        is an element and A Prius is not available. if it is not an element.
+         */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Solution
+        String[] cars2 = {"Corolla", "Camry", "Prius", "RAV4", "Highlander"};
+        String Prius = "A Prius is not available.";
+
+        for (String s : cars2) {
+            if (s.equals("Prius")) {
+                Prius = "A Prius is available.";
+            }
+        }
+
+        System.out.println(Prius);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Finding a Minimum or Maximum Value
+        int[] grades = {72, 84, 63, 55, 98};
+        int min = grades[0]; //set min to the first element in the array
+
+        for (int i : grades) { //enhanced for loop
+            if (i < min) { //if element is less than min
+                min = i; //set min to element that is less
+            }
+        }
+        //elements are not modified so enhanced for loop can be used
+
+        System.out.println("The lowest grade is " + min); //print lowest element
+
+
+
+
+
+
+
+
+
+
+
+
+        //Try This Out
+
+        //try to modify the code so that the algorithm will look for the maximum element instead?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Solution
+        int[] grades2 = {72, 84, 63, 55, 98};
+        int max = grades2[0];
+
+        for (int i : grades2) {
+            if (i > max) {
+                max = i;
+            }
+        }
+
+        System.out.println("The highest grade is " + max);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Shifting Elements One Index to the Left
+        String[] letters = {"A", "B", "C", "D", "E"};
+
+        String first = letters[0]; //store first element as variable
+        for(int i = 1; i < letters.length; i++)
         {
-            if (a.equals("A")) //check to see if value matches value in list
-            {
-                numAs++;//update counter
-            }
+            letters[i - 1] = letters[i];
         }
-        System.out.print("Number of A's: ");//Display output
-        System.out.println(numAs);
+        letters[letters.length-1] = first;
 
-        //Checking for Consecutive Elements
-        int[] numbers = {5, 4, 3, 3, 5};
-        boolean consecutive = false;
-
-        for (int i = 0; i < numbers.length - 1; i++)
+        for (String s: letters)
         {
-            if (numbers[i] == numbers[i + 1]) {
-                consecutive = true;
-            }
-        }
-        System.out.print("Number has consecutive: ");
-        System.out.println(consecutive);
-
-
-        //Reordering Arrays
-        //Shift Elements to the right by 1
-        int[] numbers2 = {1, 2, 3, 4, 5};
-        int[] temp = new int[numbers2.length]; //Create default array
-
-        //Loop, but stop at the last element (edge case)
-        for (int i = 0; i < numbers2.length - 1; i++){
-            temp[i + 1] = numbers2[i];
-        }
-
-        temp[0] = numbers2[numbers2.length - 1]; //Edge case
-        numbers2 = temp; //Copy over to the original array
-
-        for (int i = 0; i < numbers2.length; i++){
-            System.out.print(numbers2[i] + " ");
+            System.out.print(s + " " );
         }
         System.out.println();
-        //Finding Duplicates
-        int[] numbers3 = {1, 2, 3, 3, 4, 5};
-        boolean hasDuplicate = false;
 
-        for (int i = 0; i < numbers3.length - 1; i++){
-            for (int j = i + 1; j < numbers3.length; j++){
-                if (numbers3[i] == numbers3[j]){
-                    hasDuplicate = true;
-                }
-            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        for (int i = 0; i < letters.length-1; i++) { //iterate through array excluding last index
+            letters[i] = letters[i+1]; //copy the element to the right into current index
         }
+        letters[letters.length-1] = first; //copy original first element as last element
 
-        System.out.print("Has Duplicate: ");
-        System.out.println(hasDuplicate);
+        for (String i : letters) {
+            System.out.print(i + " "); //print array elements
+        }
+        System.out.println();
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Try this out
+        /*
+        try to modify the code so that the algorithm will shift the elements one index to the right?
+         */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        System.out.println();
+        //Solution
+        String[] letters2 = {"A", "B", "C", "D", "E"};
+
+        String last = letters2[letters2.length-1]; //store last element as variable
+        for (int i = letters2.length-1; i > 0; i--) { //iterate array from back to front excluding first index
+            letters2[i] = letters2[i-1]; //copy the element to the left into current index
+        }
+        letters2[0] = last; //copy original last element as first element
+
+        for (String i : letters2) {
+            System.out.print(i + " "); //print array elements
+        }
+        System.out.println();
+        last = letters2[letters2.length-1]; //store last element as variable
+        for (int i = letters2.length-1; i > 0; i--) { //iterate array from back to front excluding first index
+            letters2[i] = letters2[i-1]; //copy the element to the left into current index
+        }
+        letters2[0] = last; //copy original last element as first element
+
+        for (String i : letters2) {
+            System.out.print(i + " "); //print array elements
+        }
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
